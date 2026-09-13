@@ -10,6 +10,7 @@ export function renderLangSwitch(host) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "lang-btn" + (lang.id === current ? " is-on" : "");
+    btn.lang = lang.id;
     btn.textContent = lang.label;
     btn.addEventListener("click", () => {
       setLang(lang.id);

@@ -5,6 +5,8 @@ export const LANGS = [
   { id: "mg", label: "Malagasy" },
 ];
 
+/** Product names stay in English in every locale. Surrounding sentences are translated. */
+
 export const strings = {
   en: {
     brand: "Career Launch Africa",
@@ -14,14 +16,15 @@ export const strings = {
       "This file is built on your phone. We never see it. Nothing is uploaded. Close this page and the text is gone.",
     privacyChat:
       "The chat you use (Gemini, Claude, or DeepSeek) is separate. Use a temporary or private chat. We do not store names, numbers, or your CV.",
-    tileCv: "CV Builder",
+    tileCv: "CV Launch",
     tileCvHint: "Create, improve, or tailor a CV.",
-    tileInterview: "Interview Builder",
-    tileRoadmap: "Roadmap",
+    tileInterview: "Interview Launch",
+    tileRoadmap: "Career Roadmap Launch",
     comingSoon: "Coming soon",
     open: "Open",
+    openAgent: "Open {agent}",
     backHub: "Back to Career Launch Africa",
-    backCv: "Back to CV Builder",
+    backCv: "Back to CV Launch",
     finishQ: "Do you need to finish today?",
     finishYes: "Yes — I need to finish in this sitting",
     finishNo: "No — I can continue later",
@@ -68,14 +71,15 @@ export const strings = {
       "Ce fichier est créé sur votre téléphone. Nous ne le voyons jamais. Rien n’est envoyé. Fermez cette page et le texte disparaît.",
     privacyChat:
       "Le chat que vous utilisez (Gemini, Claude ou DeepSeek) est séparé. Utilisez un chat temporaire ou privé. Nous ne stockons ni noms, ni numéros, ni votre CV.",
-    tileCv: "CV Builder",
+    tileCv: "CV Launch",
     tileCvHint: "Créer, améliorer ou adapter un CV.",
-    tileInterview: "Interview Builder",
-    tileRoadmap: "Roadmap",
+    tileInterview: "Interview Launch",
+    tileRoadmap: "Career Roadmap Launch",
     comingSoon: "Bientôt",
     open: "Ouvrir",
+    openAgent: "Ouvrir {agent}",
     backHub: "Retour à Career Launch Africa",
-    backCv: "Retour au CV Builder",
+    backCv: "Retour à CV Launch",
     finishQ: "Devez-vous terminer aujourd’hui ?",
     finishYes: "Oui — je dois terminer maintenant",
     finishNo: "Non — je peux continuer plus tard",
@@ -123,14 +127,15 @@ export const strings = {
       "Este ficheiro é criado no seu telemóvel. Nunca o vemos. Nada é enviado. Feche esta página e o texto desaparece.",
     privacyChat:
       "O chat que usa (Gemini, Claude ou DeepSeek) é separado. Use um chat temporário ou privado. Não guardamos nomes, números nem o seu CV.",
-    tileCv: "CV Builder",
+    tileCv: "CV Launch",
     tileCvHint: "Criar, melhorar ou adaptar um CV.",
-    tileInterview: "Interview Builder",
-    tileRoadmap: "Roadmap",
+    tileInterview: "Interview Launch",
+    tileRoadmap: "Career Roadmap Launch",
     comingSoon: "Em breve",
     open: "Abrir",
+    openAgent: "Abrir {agent}",
     backHub: "Voltar a Career Launch Africa",
-    backCv: "Voltar ao CV Builder",
+    backCv: "Voltar ao CV Launch",
     finishQ: "Precisa terminar hoje?",
     finishYes: "Sim — preciso terminar agora",
     finishNo: "Não — posso continuar mais tarde",
@@ -143,7 +148,7 @@ export const strings = {
     ifBusy: "Se esse chat estiver ocupado ou sem mensagens grátis",
     copyWizard: "Copiar o assistente",
     copied: "Copiado — cole no chat",
-    copyFail: "Não foi possível copiar. Selecione o texto e copie você mesmo.",
+    copyFail: "Não foi possível copiar. Selecione o texto e copie-o.",
     stepsTitle: "Como fazer",
     step1: "Abra o chat acima. Comece um chat novo ou temporário.",
     step2: "Cole o assistente e envie. Não anexe ficheiro nem foto.",
@@ -171,20 +176,21 @@ export const strings = {
   },
   mg: {
     brand: "Career Launch Africa",
-    tagline: "Mamorona CV. Mianatra interview. Manomana ny asanao.",
+    tagline: "Mamorona CV. Mianatra dinidinika. Manomana ny asanao.",
     weNeverStore: "Tsy tehirizinay velively ny valinteninao.",
     privacyPhone:
       "Amin’ny findrinao no amboarina io rakitra io. Tsy hitanay izany. Tsy misy alefa. Raha hidiana ity pejy ity dia lasa ny lahatsoratra.",
     privacyChat:
       "Ny chat ampiasainao (Gemini, Claude, na DeepSeek) dia hafa. Mampiasà chat vonjimaika na tsy hita maso. Tsy tehirizinay ny anarana, ny laharana, na ny CV-nao.",
-    tileCv: "CV Builder",
+    tileCv: "CV Launch",
     tileCvHint: "Mamorona, manatsara, na mampifanaraka CV.",
-    tileInterview: "Interview Builder",
-    tileRoadmap: "Roadmap",
+    tileInterview: "Interview Launch",
+    tileRoadmap: "Career Roadmap Launch",
     comingSoon: "Ho avy tsy ho ela",
     open: "Sokafy",
+    openAgent: "Sokafy ny {agent}",
     backHub: "Hiverina any amin’ny Career Launch Africa",
-    backCv: "Hiverina any amin’ny CV Builder",
+    backCv: "Hiverina any amin’ny CV Launch",
     finishQ: "Mila vita androany ve ianao?",
     finishYes: "Eny — tsy maintsy vita izao",
     finishNo: "Tsia — afaka tohizako any aoriana",
@@ -215,7 +221,7 @@ export const strings = {
     parseError:
       "Apetaho ny boaty avy amin’ny torolalana. Ilaina ny andalana === CV START === sy === CV END ===.",
     builtLocal: "Amin’ity findrinao ity no amboarina ny rakitra. Tsy hitanay izany.",
-    wizardV: "Torolalana CV v1 — Sep 2026",
+    wizardV: "Torolalana CV v1 — Septambra 2026",
     agentGemini: "Gemini",
     agentClaude: "Claude",
     agentDeepSeek: "DeepSeek",
@@ -228,18 +234,40 @@ export const strings = {
 const STORAGE_KEY = "cla-lang";
 
 export function getLang() {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved && strings[saved]) return saved;
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved && strings[saved]) return saved;
+  } catch {
+    /* Node tests and first paint without storage */
+  }
   return "en";
 }
 
 export function setLang(id) {
   if (!strings[id]) return;
-  localStorage.setItem(STORAGE_KEY, id);
-  document.documentElement.lang = id;
+  try {
+    localStorage.setItem(STORAGE_KEY, id);
+  } catch {
+    /* ignore */
+  }
+  if (typeof document !== "undefined") document.documentElement.lang = id;
 }
 
 export function t(key) {
   const lang = getLang();
   return strings[lang][key] || strings.en[key] || key;
+}
+
+export function tFormat(key, vars = {}) {
+  return Object.entries(vars).reduce(
+    (text, [name, value]) => text.replaceAll(`{${name}}`, value),
+    t(key),
+  );
+}
+
+export function localeKeySetsMatch() {
+  const keys = Object.keys(strings.en).sort();
+  return Object.keys(strings).every(
+    (lang) => JSON.stringify(Object.keys(strings[lang]).sort()) === JSON.stringify(keys),
+  );
 }

@@ -1,5 +1,5 @@
 import { applyI18n, renderLangSwitch } from "./applyI18n.js";
-import { t } from "./i18n.js";
+import { t, tFormat } from "./i18n.js";
 import { pickAgents } from "./pickAgents.js";
 import { WIZARD_PROMPT } from "./wizardPrompt.js";
 
@@ -16,7 +16,7 @@ function agentLink(id, primary) {
   a.href = agent.href;
   a.target = "_blank";
   a.rel = "noopener noreferrer";
-  a.textContent = `${t("open")} ${t(agent.labelKey)}`;
+  a.textContent = tFormat("openAgent", { agent: t(agent.labelKey) });
   return a;
 }
 

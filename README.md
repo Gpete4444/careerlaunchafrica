@@ -1,6 +1,6 @@
 # Career Launch Africa
 
-Free hub for youth: **CV Builder** now; Interview Builder and Roadmap later.
+Free hub for youth: **CV Launch** now; Interview Launch and Career Roadmap Launch later.
 
 - No accounts.
 - We never store a CV.

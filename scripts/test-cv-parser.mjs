@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { contactLine, extractCvBox, parseCvBox } from "../src/cvParser.js";
 import { cvFileBase } from "../src/fileName.js";
+import { localeKeySetsMatch, strings, tFormat } from "../src/i18n.js";
 import { pickAgents } from "../src/pickAgents.js";
 
 const messy = `Here is your CV.
@@ -46,5 +47,21 @@ assert.deepEqual(pickAgents("create", "no"), { first: "gemini", backup: "deepsee
 assert.deepEqual(pickAgents("improve", "yes"), { first: "gemini", backup: "claude" });
 assert.deepEqual(pickAgents("improve", "no"), { first: "claude", backup: "gemini" });
 assert.deepEqual(pickAgents("tailor", "no"), { first: "claude", backup: "gemini" });
+
+assert.equal(localeKeySetsMatch(), true);
+assert.equal(strings.en.tileCv, "CV Launch");
+assert.equal(strings.fr.tileInterview, "Interview Launch");
+assert.equal(strings.pt.tileRoadmap, "Career Roadmap Launch");
+assert.equal(strings.mg.tileCv, "CV Launch");
+assert.match(strings.en.openAgent, /\{agent\}/);
+assert.match(strings.mg.openAgent, /Sokafy ny \{agent\}/);
+
+const saved = globalThis.localStorage;
+globalThis.localStorage = {
+  getItem: () => "mg",
+  setItem() {},
+};
+assert.equal(tFormat("openAgent", { agent: "Gemini" }), "Sokafy ny Gemini");
+globalThis.localStorage = saved || { getItem: () => null, setItem() {} };
 
 console.log("cv parser and routing ok");
