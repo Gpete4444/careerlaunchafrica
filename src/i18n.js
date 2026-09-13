@@ -41,7 +41,7 @@ export const strings = {
     stepsTitle: "How to run it",
     step1: "Open the chat above. Start a new or temporary chat.",
     step2: "Paste the wizard and send. Do not attach a file or photo.",
-    step3: "Answer one question at a time. Type Back to change an answer.",
+    step3: "Answer one question at a time. Type the number (1, 2, 3). Type Back to change an answer.",
     step4: "When you see === CV START ===, copy that box.",
     step5: "Open Make Word file on this site and paste the box. Download Word or PDF.",
     pasteOnly:
@@ -96,7 +96,7 @@ export const strings = {
     stepsTitle: "Comment faire",
     step1: "Ouvrez le chat ci-dessus. Démarrez un nouveau chat ou un chat temporaire.",
     step2: "Collez l’assistant et envoyez. N’ajoutez pas de fichier ni de photo.",
-    step3: "Répondez à une question à la fois. Tapez Back pour changer une réponse.",
+    step3: "Répondez à une question à la fois. Tapez le numéro (1, 2, 3). Tapez Back pour changer une réponse.",
     step4: "Quand vous voyez === CV START ===, copiez ce bloc.",
     step5: "Ouvrez Créer le fichier Word sur ce site, collez le bloc, puis téléchargez Word ou PDF.",
     pasteOnly:
@@ -152,7 +152,7 @@ export const strings = {
     stepsTitle: "Como fazer",
     step1: "Abra o chat acima. Comece um chat novo ou temporário.",
     step2: "Cole o assistente e envie. Não anexe ficheiro nem foto.",
-    step3: "Responda a uma pergunta de cada vez. Escreva Back para mudar uma resposta.",
+    step3: "Responda a uma pergunta de cada vez. Escreva o número (1, 2, 3). Escreva Back para mudar uma resposta.",
     step4: "Quando vir === CV START ===, copie essa caixa.",
     step5: "Abra Criar ficheiro Word neste site, cole a caixa e descarregue Word ou PDF.",
     pasteOnly:
@@ -207,7 +207,7 @@ export const strings = {
     stepsTitle: "Fomba fanaovana",
     step1: "Sokafy ny chat etsy ambony. Manomboka chat vaovao na vonjimaika.",
     step2: "Apetaho ny torolalana dia alefaso. Aza ampidirina rakitra na sary.",
-    step3: "Valio iray isaky ny manontany. Soraty ny Back raha hanova valiny.",
+    step3: "Valio iray isaky ny manontany. Soraty ny isa (1, 2, 3). Soraty ny Back raha hanova valiny.",
     step4: "Rehefa mahita === CV START === ianao, adikao io boaty io.",
     step5: "Sokafy ny Amboary rakitra Word eto amin’ity tranonkala ity, apetaho ny boaty, alaina Word na PDF.",
     pasteOnly:
