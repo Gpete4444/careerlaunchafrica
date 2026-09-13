@@ -1,0 +1,21 @@
+{
+  "name": "careerlaunchafrica",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Career Launch Africa — free CV Builder hub. No accounts. CVs are built on the phone, never uploaded.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node scripts/test-cv-parser.mjs"
+  },
+  "dependencies": {
+    "docx": "^9.5.1",
+    "file-saver": "^2.0.5",
+    "jspdf": "^3.0.1"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5"
+  }
+}

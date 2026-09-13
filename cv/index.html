@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="tileCv">CV Builder</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <div class="brand" data-i18n="brand">Career Launch Africa</div>
+        <div id="lang-switch" class="lang-switch"></div>
+      </header>
+
+      <a class="back" href="../" data-i18n="backHub">Back to Career Launch Africa</a>
+      <h1 data-i18n="tileCv">CV Builder</h1>
+      <p class="privacy" data-i18n="privacyChat"></p>
+      <p class="note" data-i18n="pasteOnly"></p>
+
+      <section class="card">
+        <h2 data-i18n="pathQ"></h2>
+        <div class="choices">
+          <button type="button" class="choice" data-group="path" data-value="create" data-i18n="pathCreate"></button>
+          <button type="button" class="choice" data-group="path" data-value="improve" data-i18n="pathImprove"></button>
+          <button type="button" class="choice" data-group="path" data-value="tailor" data-i18n="pathTailor"></button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="finishQ"></h2>
+        <div class="choices">
+          <button type="button" class="choice" data-group="finish" data-value="yes" data-i18n="finishYes"></button>
+          <button type="button" class="choice" data-group="finish" data-value="no" data-i18n="finishNo"></button>
+        </div>
+      </section>
+
+      <p id="choose-both" data-i18n="chooseBoth"></p>
+
+      <section id="recommend" class="card hidden">
+        <h2 data-i18n="openFirst"></h2>
+        <div id="first-link" class="actions"></div>
+        <h2 data-i18n="ifBusy"></h2>
+        <div id="backup-link" class="actions"></div>
+        <p id="claude-wait" class="note hidden" data-i18n="claudeWait"></p>
+      </section>
+
+      <section class="card">
+        <button type="button" class="btn btn-primary" id="copy-wizard" data-i18n="copyWizard"></button>
+        <p id="copy-status"></p>
+        <h2 data-i18n="stepsTitle"></h2>
+        <ol class="steps">
+          <li data-i18n="step1"></li>
+          <li data-i18n="step2"></li>
+          <li data-i18n="step3"></li>
+          <li data-i18n="step4"></li>
+          <li data-i18n="step5"></li>
+        </ol>
+        <a class="btn btn-secondary" href="./make-word.html" data-i18n="makeWord"></a>
+      </section>
+
+      <p class="version" data-i18n="wizardV"></p>
+    </div>
+    <script type="module" src="/src/cv.js"></script>
+  </body>
+</html>
