@@ -1,5 +1,9 @@
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
+import { unlinkSync, writeFileSync } from "node:fs";
+import { Packer } from "docx";
 import { contactLine, extractCvBox, parseCvBox } from "../src/cvParser.js";
+import { buildDocxDocument } from "../src/cvDoc.js";
 import { cvFileBase, progressFileBase } from "../src/fileName.js";
 import { sectionHeading } from "../src/headings.js";
 import { localeKeySetsMatch, strings, tFormat } from "../src/i18n.js";
@@ -92,6 +96,33 @@ assert.match(promptFor("create"), /Download Word file/);
 assert.match(promptFor("create"), /Never create, attach, or offer a PDF/);
 assert.match(promptFor("tailor"), /full job description/);
 assert.match(promptFor("create"), /JOB_AD:/);
+assert.match(promptFor("create"), /REQUIRED LAST MESSAGE/);
+assert.match(promptFor("create"), /=== CV START ===/);
+assert.match(promptFor("create"), /=== CV END ===/);
+assert.match(promptFor("continue"), /REQUIRED LAST MESSAGE/);
+
+const labeledOnly = `FULL_NAME: Amina Diallo
+CITY: Dakar
+COUNTRY: Senegal
+TARGET_JOB: Shop Assistant
+PROFILE: Reliable shop assistant.
+EXPERIENCE:
+Market stall | Helper | 2024-2025
+- Served customers
+`;
+const loose = parseCvBox(labeledOnly);
+assert.equal(loose.ok, true);
+assert.equal(loose.cv.FULL_NAME, "Amina Diallo");
+assert.equal(parseCvBox("=== CV START ===\nFULL_NAME:\n=== CV END ===").ok, false);
+
+const buf = await Packer.toBuffer(buildDocxDocument(loose.cv));
+const docxPath = "scripts/.test-cv.docx";
+writeFileSync(docxPath, buf);
+const xml = execFileSync("tar", ["-xOf", docxPath, "word/document.xml"], { encoding: "utf8" });
+assert.match(xml, /Amina/);
+assert.match(xml, /Shop Assistant/);
+assert.match(xml, /Market stall/);
+unlinkSync(docxPath);
 
 assert.equal(localeKeySetsMatch(), true);
 assert.ok(strings.sw);

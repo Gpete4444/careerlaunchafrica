@@ -1,112 +1,15 @@
-import { AlignmentType, Document, HeadingLevel, Packer, Paragraph, TextRun } from "docx";
+import { Packer } from "docx";
 import { saveAs } from "file-saver";
 import { jsPDF } from "jspdf";
 import { applyI18n, renderLangSwitch } from "./applyI18n.js";
+import { buildDocxDocument } from "./cvDoc.js";
 import { contactLine, parseCvBox } from "./cvParser.js";
 import { cvFileBase } from "./fileName.js";
 import { sectionHeading } from "./headings.js";
-import { t } from "./i18n.js";
+import { t, tFormat } from "./i18n.js";
 import { registerNotoSans } from "./pdfFont.js";
 
 const PLACEHOLDER = /^\s*\[[^\]]+\]\s*$/;
-
-function heading(text) {
-  return new Paragraph({
-    heading: HeadingLevel.HEADING_2,
-    spacing: { before: 240, after: 80 },
-    children: [new TextRun({ text, bold: true, font: "Calibri", size: 24, color: "0D6B56" })],
-  });
-}
-
-function bodyParas(text) {
-  if (!text) return [];
-  return text.split(/\n+/).filter(Boolean).map(
-    (line) =>
-      new Paragraph({
-        spacing: { after: 80 },
-        bullet: line.trim().startsWith("- ") ? { level: 0 } : undefined,
-        children: [
-          new TextRun({
-            text: line.trim().replace(/^- /, ""),
-            font: "Calibri",
-            size: 22,
-            color: PLACEHOLDER.test(line) ? "8A5A00" : "1C2A24",
-            italics: PLACEHOLDER.test(line),
-          }),
-        ],
-      }),
-  );
-}
-
-async function buildDocx(cv) {
-  const children = [
-    new Paragraph({
-      alignment: AlignmentType.CENTER,
-      spacing: { after: 80 },
-      children: [
-        new TextRun({
-          text: cv.FULL_NAME || "[ADD YOUR NAME]",
-          bold: true,
-          font: "Calibri",
-          size: 36,
-        }),
-      ],
-    }),
-    new Paragraph({
-      alignment: AlignmentType.CENTER,
-      spacing: { after: 200 },
-      children: [
-        new TextRun({
-          text: contactLine(cv),
-          font: "Calibri",
-          size: 20,
-          color: "33443C",
-        }),
-      ],
-    }),
-  ];
-
-  if (cv.TARGET_JOB) {
-    children.push(
-      new Paragraph({
-        alignment: AlignmentType.CENTER,
-        spacing: { after: 200 },
-        children: [new TextRun({ text: cv.TARGET_JOB, italics: true, font: "Calibri", size: 22 })],
-      }),
-    );
-  }
-  const lang = cv.CV_LANGUAGE;
-  if (cv.PROFILE) {
-    children.push(heading(sectionHeading(lang, "PROFILE")), ...bodyParas(cv.PROFILE));
-  }
-  if (cv.EXPERIENCE) {
-    children.push(heading(sectionHeading(lang, "EXPERIENCE")), ...bodyParas(cv.EXPERIENCE));
-  }
-  if (cv.EDUCATION) {
-    children.push(heading(sectionHeading(lang, "EDUCATION")), ...bodyParas(cv.EDUCATION));
-  }
-  if (cv.SKILLS) {
-    children.push(heading(sectionHeading(lang, "SKILLS")), ...bodyParas(cv.SKILLS));
-  }
-  if (cv.LANGUAGES) {
-    children.push(heading(sectionHeading(lang, "LANGUAGES")), ...bodyParas(cv.LANGUAGES));
-  }
-  if (cv.OTHER) {
-    children.push(heading(sectionHeading(lang, "OTHER")), ...bodyParas(cv.OTHER));
-  }
-
-  const doc = new Document({
-    sections: [
-      {
-        properties: {
-          page: { margin: { top: 720, bottom: 720, left: 720, right: 720 } },
-        },
-        children,
-      },
-    ],
-  });
-  return Packer.toBlob(doc);
-}
 
 async function buildPdf(cv) {
   const doc = new jsPDF({ unit: "pt", format: "a4" });
@@ -171,23 +74,37 @@ function boot() {
 
   const paste = document.getElementById("cv-paste");
   const error = document.getElementById("parse-error");
+  const okNote = document.getElementById("parse-ok");
   const wordBtn = document.getElementById("download-word");
   const pdfBtn = document.getElementById("download-pdf");
 
-  const readCv = () => {
+  const readCv = (quiet) => {
     const parsed = parseCvBox(paste.value);
     if (!parsed.ok) {
-      showError(error, t("parseError"));
+      if (!quiet) showError(error, t("parseError"));
+      else showError(error, "");
+      okNote.classList.add("hidden");
+      okNote.textContent = "";
       return null;
     }
     showError(error, "");
+    okNote.classList.remove("hidden");
+    okNote.textContent = tFormat("parseReady", { name: parsed.cv.FULL_NAME || parsed.cv.TARGET_JOB });
     return parsed.cv;
   };
+
+  paste.addEventListener("input", () => {
+    if (paste.value.trim()) readCv(true);
+    else {
+      showError(error, "");
+      okNote.classList.add("hidden");
+    }
+  });
 
   wordBtn.addEventListener("click", async () => {
     const cv = readCv();
     if (!cv) return;
-    const blob = await buildDocx(cv);
+    const blob = await Packer.toBlob(buildDocxDocument(cv));
     saveAs(blob, `${cvFileBase(cv)}.docx`);
   });
 

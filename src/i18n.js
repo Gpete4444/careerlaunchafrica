@@ -97,7 +97,8 @@ export const strings = {
     downloadWord: "Download Word file (you can edit it)",
     downloadPdf: "Download PDF",
     parseError:
-      "Paste the box from the wizard. We need the lines === CV START === and === CV END ===.",
+      "Paste the CV from the chat. We look for === CV START === and === CV END ===, or labeled lines like FULL_NAME:.",
+    parseReady: "Ready to make a Word file for {name}.",
     pdfFail: "Could not build the PDF. Try Word, or reload the page.",
     pasteProgressLabel:
       "Paste the progress box (from === PROGRESS START === to === PROGRESS END ===)",
@@ -205,7 +206,8 @@ export const strings = {
     downloadWord: "Télécharger le fichier Word (modifiable)",
     downloadPdf: "Télécharger le PDF",
     parseError:
-      "Collez le bloc de l’assistant. Il faut les lignes === CV START === et === CV END ===.",
+      "Collez le CV du chat. Nous cherchons === CV START === et === CV END ===, ou des lignes comme FULL_NAME:.",
+    parseReady: "Prêt à créer un fichier Word pour {name}.",
     pdfFail: "Impossible de créer le PDF. Essayez Word, ou rechargez la page.",
     pasteProgressLabel:
       "Collez le bloc de progression (de === PROGRESS START === à === PROGRESS END ===)",
@@ -313,7 +315,8 @@ export const strings = {
     downloadWord: "Descarregar o ficheiro Word (pode editá-lo)",
     downloadPdf: "Descarregar o PDF",
     parseError:
-      "Cole a caixa do assistente. Precisamos das linhas === CV START === e === CV END ===.",
+      "Cole o CV do chat. Procuramos === CV START === e === CV END ===, ou linhas como FULL_NAME:.",
+    parseReady: "Pronto para criar um ficheiro Word para {name}.",
     pdfFail: "Não foi possível criar o PDF. Tente Word, ou recarregue a página.",
     pasteProgressLabel:
       "Cole a caixa de progresso (de === PROGRESS START === até === PROGRESS END ===)",
@@ -421,7 +424,8 @@ export const strings = {
     downloadWord: "Pakua faili la Word (unaweza kulihariri)",
     downloadPdf: "Pakua PDF",
     parseError:
-      "Bandika kisanduku kutoka mwongozo. Tunahitaji mistari === CV START === na === CV END ===.",
+      "Bandika CV kutoka gumzo. Tunatafuta === CV START === na === CV END ===, au mistari kama FULL_NAME:.",
+    parseReady: "Tayari kutengeneza faili la Word la {name}.",
     pdfFail: "Imeshindwa kutengeneza PDF. Jaribu Word, au pakia ukurasa tena.",
     pasteProgressLabel:
       "Bandika kisanduku cha maendeleo (kutoka === PROGRESS START === hadi === PROGRESS END ===)",
@@ -529,7 +533,8 @@ export const strings = {
     downloadWord: "Alaina ny rakitra Word (azonao ovaina)",
     downloadPdf: "Alaina ny PDF",
     parseError:
-      "Apetaho ny boaty avy amin’ny torolalana. Ilaina ny andalana === CV START === sy === CV END ===.",
+      "Apetaho ny CV avy amin’ny chat. Mitady === CV START === sy === CV END === izahay, na andalana toa ny FULL_NAME:.",
+    parseReady: "Vonona hamorona rakitra Word ho an’i {name}.",
     pdfFail: "Tsy vita ny PDF. Andramo ny Word, na havaozy ny pejy.",
     pasteProgressLabel:
       "Apetaho ny boaty fandrosoana (hatramin’ny === PROGRESS START === ka hatramin’ny === PROGRESS END ===)",
