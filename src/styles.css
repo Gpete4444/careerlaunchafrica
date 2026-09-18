@@ -208,3 +208,28 @@ textarea {
 .version { font-size: 0.85rem; color: var(--muted); margin-top: 28px; }
 
 .back { display: inline-block; margin-bottom: 12px; font-weight: 700; }
+
+.progress-track {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: 8px;
+  background: #e4dccb;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: var(--teal);
+  transition: width 0.2s ease;
+}
+
+.wizard-details {
+  margin: 14px 0;
+}
+
+.wizard-details summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--teal-ink);
+}

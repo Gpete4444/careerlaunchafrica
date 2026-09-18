@@ -14,7 +14,7 @@ export const strings = {
     tagline: "Build a CV. Practice interviews. Plan a career.",
     weNeverStore: "We never store your answers on our servers.",
     privacyPhone:
-      "This file is built on your phone. We never see it. Nothing is uploaded. Close this page and the text is gone.",
+      "This file is built on your phone or personal computer. We never see it. Nothing is uploaded. Close this page and the text is gone.",
     privacyChat:
       "The chat you use (Gemini or Claude) is separate. We do not store names, numbers, or your CV. If you might stop and continue later, use a normal chat you can open again — not a temporary chat.",
     tileCv: "CV Launch",
@@ -41,12 +41,12 @@ export const strings = {
     pathCreateHint: "We will write a CV you can download as Word or PDF.",
     pathImprove: "Improve a CV I already have",
     pathImproveHint:
-      "Suggestions only. You change your own file. We will not rebuild or download a new CV.",
+      "Suggestions only. You will need to paste your current CV text into the chat. You change your own file. We will not rebuild or download a new CV.",
     pathTailor: "Tailor my CV to a job",
     pathTailorHint:
-      "Suggestions to match a job. You change your own file. We will not rebuild or download a new CV.",
+      "Suggestions to match a job. You will need to paste your current CV and the job text into the chat. You change your own file. We will not rebuild or download a new CV.",
     pathContinue: "Continue creating",
-    pathContinueHint: "You saved a progress file. Paste it in the chat to pick up where you stopped.",
+    pathContinueHint: "You will enter your progress file from a previous session.",
     atsTitle: "ATS score — goal: above 80",
     atsBlurb:
       "On this path the chat will estimate how ready your CV is for employer software (ATS). The goal is above 80. This is an estimate, not an official score.",
@@ -57,9 +57,14 @@ export const strings = {
     loginFirst:
       "If the chat asks you to log in, log in first, then come back to this tab. Login can wipe what you copied. Copy again here if paste is empty.",
     copyWizard: "Copy the wizard",
-    copied: "Copied. Now open the chat, paste, and send.",
-    copyFail: "Could not copy. Select the wizard text below and copy it yourself.",
-    recopyHint: "The wizard stays in the box. Copy again any time if paste is empty.",
+    copyTitle: "Copy the wizard",
+    tipsTitle: "Read this first",
+    copiedGoNext: "I copied it — next",
+    showWizard: "Show the wizard text",
+    progressAria: "Progress",
+    copied: "Copied. Tap Next, then open the chat and paste.",
+    copyFail: "Could not copy. Open Show the wizard text and copy it yourself.",
+    recopyHint: "If paste is empty, copy again here. You do not need to read the long text.",
     openFirst: "Then open this chat and paste",
     ifBusy: "If that chat is busy or out of free messages",
     deepSeekOnly: "DeepSeek — only if you are already logged in",
@@ -94,7 +99,7 @@ export const strings = {
     pdfFail: "Could not build the PDF. Try Word, or reload the page.",
     pasteProgressLabel:
       "Paste the progress box (from === PROGRESS START === to === PROGRESS END ===)",
-    builtLocal: "The file is built on this phone. We never see it.",
+    builtLocal: "The file is built on this phone or personal computer. We never see it.",
     wizardV: "CV wizard v1.1 — Sep 2026",
     agentGemini: "Gemini",
     agentClaude: "Claude",
@@ -104,7 +109,7 @@ export const strings = {
     langAria: "Site language",
     saveProgressTitle: "Save your progress",
     saveProgressHelp:
-      "Paste the box from the chat (from === PROGRESS START === to === PROGRESS END ===). Download it onto this phone. Later choose Continue creating and paste this file into the chat.",
+      "Paste the box from the chat (from === PROGRESS START === to === PROGRESS END ===). Download it onto this phone or personal computer. Later choose Continue creating and paste this file into the chat.",
     downloadProgress: "Download progress file",
     progressError:
       "Paste the progress box. We need the lines === PROGRESS START === and === PROGRESS END ===.",
@@ -115,7 +120,7 @@ export const strings = {
     tagline: "Créez un CV. Entraînez-vous aux entretiens. Planifiez votre parcours.",
     weNeverStore: "Nous ne stockons jamais vos réponses sur nos serveurs.",
     privacyPhone:
-      "Ce fichier est créé sur votre téléphone. Nous ne le voyons jamais. Rien n’est envoyé. Fermez cette page et le texte disparaît.",
+      "Ce fichier est créé sur votre téléphone ou votre ordinateur personnel. Nous ne le voyons jamais. Rien n’est envoyé. Fermez cette page et le texte disparaît.",
     privacyChat:
       "Le chat que vous utilisez (Gemini ou Claude) est séparé. Nous ne stockons ni noms, ni numéros, ni votre CV. Si vous pouvez vous arrêter et continuer plus tard, utilisez un chat normal que vous pourrez rouvrir — pas un chat temporaire.",
     tileCv: "CV Launch",
@@ -142,12 +147,12 @@ export const strings = {
     pathCreateHint: "Nous rédigeons un CV que vous pourrez télécharger en Word ou PDF.",
     pathImprove: "Améliorer un CV que j’ai déjà",
     pathImproveHint:
-      "Suggestions seulement. Vous modifiez votre fichier. Nous ne recréons pas et ne téléchargeons pas un nouveau CV.",
+      "Suggestions seulement. Vous devrez coller le texte de votre CV actuel dans le chat. Vous modifiez votre fichier. Nous ne recréons pas et ne téléchargeons pas un nouveau CV.",
     pathTailor: "Adapter mon CV à une offre",
     pathTailorHint:
-      "Suggestions pour une offre. Vous modifiez votre fichier. Nous ne recréons pas et ne téléchargeons pas un nouveau CV.",
+      "Suggestions pour une offre. Vous devrez coller votre CV actuel et le texte de l’offre dans le chat. Vous modifiez votre fichier. Nous ne recréons pas et ne téléchargeons pas un nouveau CV.",
     pathContinue: "Continuer la création",
-    pathContinueHint: "Vous avez un fichier de progression. Collez-le dans le chat pour reprendre.",
+    pathContinueHint: "Vous allez saisir votre fichier de progression d’une session précédente.",
     atsTitle: "Score ATS — objectif : plus de 80",
     atsBlurb:
       "Sur ce parcours, le chat estimera si votre CV passe le logiciel des employeurs (ATS). L’objectif est plus de 80. C’est une estimation, pas un score officiel.",
@@ -158,9 +163,14 @@ export const strings = {
     loginFirst:
       "Si le chat demande une connexion, connectez-vous d’abord, puis revenez ici. La connexion peut vider le presse-papiers. Recopiez ici si le collage est vide.",
     copyWizard: "Copier l’assistant",
-    copied: "Copié. Ouvrez le chat, collez, et envoyez.",
-    copyFail: "Copie impossible. Sélectionnez le texte ci-dessous et copiez-le vous-même.",
-    recopyHint: "L’assistant reste dans la zone. Recopiez-le si le collage est vide.",
+    copyTitle: "Copier l’assistant",
+    tipsTitle: "Lisez ceci d’abord",
+    copiedGoNext: "J’ai copié — suivant",
+    showWizard: "Afficher le texte de l’assistant",
+    progressAria: "Progression",
+    copied: "Copié. Appuyez sur Suivant, puis ouvrez le chat et collez.",
+    copyFail: "Copie impossible. Ouvrez Afficher le texte de l’assistant et copiez-le.",
+    recopyHint: "Si le collage est vide, recopiez ici. Vous n’avez pas besoin de lire le long texte.",
     openFirst: "Puis ouvrez ce chat et collez",
     ifBusy: "Si ce chat est occupé ou sans messages gratuits",
     deepSeekOnly: "DeepSeek — seulement si vous êtes déjà connecté",
@@ -195,7 +205,7 @@ export const strings = {
     pdfFail: "Impossible de créer le PDF. Essayez Word, ou rechargez la page.",
     pasteProgressLabel:
       "Collez le bloc de progression (de === PROGRESS START === à === PROGRESS END ===)",
-    builtLocal: "Le fichier est créé sur ce téléphone. Nous ne le voyons jamais.",
+    builtLocal: "Le fichier est créé sur ce téléphone ou cet ordinateur personnel. Nous ne le voyons jamais.",
     wizardV: "Assistant CV v1.1 — sept. 2026",
     agentGemini: "Gemini",
     agentClaude: "Claude",
@@ -205,7 +215,7 @@ export const strings = {
     langAria: "Langue du site",
     saveProgressTitle: "Enregistrer la progression",
     saveProgressHelp:
-      "Collez le bloc du chat (de === PROGRESS START === à === PROGRESS END ===). Téléchargez-le sur ce téléphone. Plus tard, choisissez Continuer la création et collez ce fichier dans le chat.",
+      "Collez le bloc du chat (de === PROGRESS START === à === PROGRESS END ===). Téléchargez-le sur ce téléphone ou cet ordinateur personnel. Plus tard, choisissez Continuer la création et collez ce fichier dans le chat.",
     downloadProgress: "Télécharger le fichier de progression",
     progressError:
       "Collez le bloc de progression. Il faut les lignes === PROGRESS START === et === PROGRESS END ===.",
@@ -216,7 +226,7 @@ export const strings = {
     tagline: "Crie um CV. Pratique entrevistas. Planeie a sua carreira.",
     weNeverStore: "Nunca guardamos as suas respostas nos nossos servidores.",
     privacyPhone:
-      "Este ficheiro é criado no seu telemóvel. Nunca o vemos. Nada é enviado. Feche esta página e o texto desaparece.",
+      "Este ficheiro é criado no seu telemóvel ou computador pessoal. Nunca o vemos. Nada é enviado. Feche esta página e o texto desaparece.",
     privacyChat:
       "O chat que usa (Gemini ou Claude) é separado. Não guardamos nomes, números nem o seu CV. Se puder parar e continuar mais tarde, use um chat normal que possa abrir outra vez — não um chat temporário.",
     tileCv: "CV Launch",
@@ -243,12 +253,12 @@ export const strings = {
     pathCreateHint: "Vamos escrever um CV que pode descarregar em Word ou PDF.",
     pathImprove: "Melhorar um CV que já tenho",
     pathImproveHint:
-      "Só sugestões. Altera o seu próprio ficheiro. Não recriamos nem descarregamos um CV novo.",
+      "Só sugestões. Vai colar o texto do seu CV atual no chat. Altera o seu próprio ficheiro. Não recriamos nem descarregamos um CV novo.",
     pathTailor: "Adaptar o meu CV a uma vaga",
     pathTailorHint:
-      "Sugestões para uma vaga. Altera o seu próprio ficheiro. Não recriamos nem descarregamos um CV novo.",
+      "Sugestões para uma vaga. Vai colar o seu CV atual e o texto da vaga no chat. Altera o seu próprio ficheiro. Não recriamos nem descarregamos um CV novo.",
     pathContinue: "Continuar a criar",
-    pathContinueHint: "Guardou um ficheiro de progresso. Cole-o no chat para retomar.",
+    pathContinueHint: "Vai introduzir o ficheiro de progresso de uma sessão anterior.",
     atsTitle: "Pontuação ATS — objetivo: acima de 80",
     atsBlurb:
       "Neste percurso o chat estima se o seu CV passa o software dos empregadores (ATS). O objetivo é acima de 80. É uma estimativa, não uma pontuação oficial.",
@@ -259,9 +269,14 @@ export const strings = {
     loginFirst:
       "Se o chat pedir início de sessão, entre primeiro e volte a este separador. O início de sessão pode apagar o que copiou. Copie outra vez aqui se colar vazio.",
     copyWizard: "Copiar o assistente",
-    copied: "Copiado. Agora abra o chat, cole e envie.",
-    copyFail: "Não foi possível copiar. Selecione o texto abaixo e copie-o.",
-    recopyHint: "O assistente fica na caixa. Copie outra vez se colar vazio.",
+    copyTitle: "Copiar o assistente",
+    tipsTitle: "Leia isto primeiro",
+    copiedGoNext: "Já copiei — seguinte",
+    showWizard: "Mostrar o texto do assistente",
+    progressAria: "Progresso",
+    copied: "Copiado. Toque em Seguinte, depois abra o chat e cole.",
+    copyFail: "Não foi possível copiar. Abra Mostrar o texto do assistente e copie-o.",
+    recopyHint: "Se colar vazio, copie outra vez aqui. Não precisa de ler o texto longo.",
     openFirst: "Depois abra este chat e cole",
     ifBusy: "Se esse chat estiver ocupado ou sem mensagens grátis",
     deepSeekOnly: "DeepSeek — só se já tiver sessão iniciada",
@@ -296,7 +311,7 @@ export const strings = {
     pdfFail: "Não foi possível criar o PDF. Tente Word, ou recarregue a página.",
     pasteProgressLabel:
       "Cole a caixa de progresso (de === PROGRESS START === até === PROGRESS END ===)",
-    builtLocal: "O ficheiro é criado neste telemóvel. Nunca o vemos.",
+    builtLocal: "O ficheiro é criado neste telemóvel ou computador pessoal. Nunca o vemos.",
     wizardV: "Assistente de CV v1.1 — set. 2026",
     agentGemini: "Gemini",
     agentClaude: "Claude",
@@ -306,7 +321,7 @@ export const strings = {
     langAria: "Idioma do site",
     saveProgressTitle: "Guardar o progresso",
     saveProgressHelp:
-      "Cole a caixa do chat (de === PROGRESS START === até === PROGRESS END ===). Descarregue para este telemóvel. Mais tarde escolha Continuar a criar e cole este ficheiro no chat.",
+      "Cole a caixa do chat (de === PROGRESS START === até === PROGRESS END ===). Descarregue para este telemóvel ou computador pessoal. Mais tarde escolha Continuar a criar e cole este ficheiro no chat.",
     downloadProgress: "Descarregar o ficheiro de progresso",
     progressError:
       "Cole a caixa de progresso. Precisamos das linhas === PROGRESS START === e === PROGRESS END ===.",
@@ -317,7 +332,7 @@ export const strings = {
     tagline: "Tengeneza CV. Fanya mazoezi ya mahojiano. Panga kazi.",
     weNeverStore: "Hatuwezi kuhifadhi majibu yako kwenye seva zetu.",
     privacyPhone:
-      "Faili hili linatengenezwa kwenye simu yako. Hatulioni. Hakuna kinachotumwa. Funga ukurasa huu na maandishi yatatoweka.",
+      "Faili hili linatengenezwa kwenye simu yako au kompyuta yako. Hatulioni. Hakuna kinachotumwa. Funga ukurasa huu na maandishi yatatoweka.",
     privacyChat:
       "Gumzo unalotumia (Gemini au Claude) ni tofauti. Hatuwezi kuhifadhi majina, namba, wala CV yako. Ukitaka kusimama na kuendelea baadaye, tumia gumzo la kawaida unaloweza kufungua tena — si gumzo la muda.",
     tileCv: "CV Launch",
@@ -344,12 +359,12 @@ export const strings = {
     pathCreateHint: "Tutaandika CV utakayoweza kupakua kama Word au PDF.",
     pathImprove: "Boresha CV niliyo nayo",
     pathImproveHint:
-      "Mapendekezo tu. Unabadilisha faili lako. Hatutengenezi wala kupakua CV mpya.",
+      "Mapendekezo tu. Utahitaji kubandika maandishi ya CV yako ya sasa kwenye gumzo. Unabadilisha faili lako. Hatutengenezi wala kupakua CV mpya.",
     pathTailor: "Linganisha CV yangu na kazi",
     pathTailorHint:
-      "Mapendekezo ya kazi. Unabadilisha faili lako. Hatutengenezi wala kupakua CV mpya.",
+      "Mapendekezo ya kazi. Utahitaji kubandika CV yako ya sasa na maandishi ya kazi kwenye gumzo. Unabadilisha faili lako. Hatutengenezi wala kupakua CV mpya.",
     pathContinue: "Endelea kutengeneza",
-    pathContinueHint: "Ulihifadhi faili la maendeleo. Libandike kwenye gumzo ili kuendelea.",
+    pathContinueHint: "Utaingiza faili lako la maendeleo kutoka kipindi kilichopita.",
     atsTitle: "Alama ya ATS — lengo: zaidi ya 80",
     atsBlurb:
       "Katika njia hii gumzo litakadiria kama CV yako iko tayari kwa programu ya waajiri (ATS). Lengo ni zaidi ya 80. Hii ni makadirio, si alama rasmi.",
@@ -360,9 +375,14 @@ export const strings = {
     loginFirst:
       "Ikiwa gumzo linaomba kuingia, ingia kwanza, kisha rudi kwenye kichupo hiki. Kuingia kunaweza kufuta ulichokopa. Nakili tena hapa ikiwa kubandika ni tupu.",
     copyWizard: "Nakili mwongozo",
-    copied: "Imenakiliwa. Sasa fungua gumzo, bandika, na tuma.",
-    copyFail: "Imeshindwa kunakili. Chagua maandishi hapa chini unakili mwenyewe.",
-    recopyHint: "Mwongozo unabaki kwenye kisanduku. Nakili tena ikiwa kubandika ni tupu.",
+    copyTitle: "Nakili mwongozo",
+    tipsTitle: "Soma hii kwanza",
+    copiedGoNext: "Nimenakili — endelea",
+    showWizard: "Onyesha maandishi ya mwongozo",
+    progressAria: "Maendeleo",
+    copied: "Imenakiliwa. Gusa Endelea, kisha fungua gumzo na ubandike.",
+    copyFail: "Imeshindwa kunakili. Fungua Onyesha maandishi ya mwongozo ukinakili mwenyewe.",
+    recopyHint: "Ikiwa kubandika ni tupu, nakili tena hapa. Huhitaji kusoma maandishi marefu.",
     openFirst: "Kisha fungua gumzo hili na ubandike",
     ifBusy: "Ikiwa gumzo hilo limejaa au hamna ujumbe wa bure",
     deepSeekOnly: "DeepSeek — tu kama tayari umeingia",
@@ -397,7 +417,7 @@ export const strings = {
     pdfFail: "Imeshindwa kutengeneza PDF. Jaribu Word, au pakia ukurasa tena.",
     pasteProgressLabel:
       "Bandika kisanduku cha maendeleo (kutoka === PROGRESS START === hadi === PROGRESS END ===)",
-    builtLocal: "Faili linatengenezwa kwenye simu hii. Hatulioni.",
+    builtLocal: "Faili linatengenezwa kwenye simu hii au kompyuta yako. Hatulioni.",
     wizardV: "Mwongozo wa CV v1.1 — Septemba 2026",
     agentGemini: "Gemini",
     agentClaude: "Claude",
@@ -407,7 +427,7 @@ export const strings = {
     langAria: "Lugha ya tovuti",
     saveProgressTitle: "Hifadhi maendeleo yako",
     saveProgressHelp:
-      "Bandika kisanduku kutoka gumzo (kutoka === PROGRESS START === hadi === PROGRESS END ===). Lipakue kwenye simu hii. Baadaye chagua Endelea kutengeneza na ubandike faili hili kwenye gumzo.",
+      "Bandika kisanduku kutoka gumzo (kutoka === PROGRESS START === hadi === PROGRESS END ===). Lipakue kwenye simu hii au kompyuta yako. Baadaye chagua Endelea kutengeneza na ubandike faili hili kwenye gumzo.",
     downloadProgress: "Pakua faili la maendeleo",
     progressError:
       "Bandika kisanduku cha maendeleo. Tunahitaji mistari === PROGRESS START === na === PROGRESS END ===.",
@@ -418,7 +438,7 @@ export const strings = {
     tagline: "Mamorona CV. Mianatra dinidinika. Manomana ny asanao.",
     weNeverStore: "Tsy tehirizinay amin’ny serveur-nay ny valinteninao.",
     privacyPhone:
-      "Amin’ny findrinao no amboarina io rakitra io. Tsy hitanay izany. Tsy misy alefa. Raha hidiana ity pejy ity dia lasa ny lahatsoratra.",
+      "Amin’ny findrinao na ny solosainao no amboarina io rakitra io. Tsy hitanay izany. Tsy misy alefa. Raha hidiana ity pejy ity dia lasa ny lahatsoratra.",
     privacyChat:
       "Ny chat ampiasainao (Gemini na Claude) dia hafa. Tsy tehirizinay ny anarana, ny laharana, na ny CV-nao. Raha hijanona ianao dia tohizo any aoriana, mampiasà chat tsotra azonao sokafana indray — tsy chat vonjimaika.",
     tileCv: "CV Launch",
@@ -445,12 +465,12 @@ export const strings = {
     pathCreateHint: "Hanoratra CV azo alaina Word na PDF izahay.",
     pathImprove: "Manatsara CV efa misy",
     pathImproveHint:
-      "Soso-kevitra ihany. Ianao no manova ny rakitrao. Tsy hamorona na hisintona CV vaovao izahay.",
+      "Soso-kevitra ihany. Mila apetakao ao amin’ny chat ny lahatsoratra CV anao ankehitriny. Ianao no manova ny rakitrao. Tsy hamorona na hisintona CV vaovao izahay.",
     pathTailor: "Mampifanaraka ny CV amin’ny asa iray",
     pathTailorHint:
-      "Soso-kevitra ho an’ny asa. Ianao no manova ny rakitrao. Tsy hamorona na hisintona CV vaovao izahay.",
+      "Soso-kevitra ho an’ny asa. Mila apetakao ny CV anao sy ny lahatsoratra asa ao amin’ny chat. Ianao no manova ny rakitrao. Tsy hamorona na hisintona CV vaovao izahay.",
     pathContinue: "Hanohy ny famoronana",
-    pathContinueHint: "Naharatra rakitra fandrosoana ianao. Apetaho ao amin’ny chat izany mba hanohizana.",
+    pathContinueHint: "Hampiditra ny rakitra fandrosoana avy amin’ny fotoana lasa ianao.",
     atsTitle: "Naoty ATS — tanjona: mihoatra ny 80",
     atsBlurb:
       "Amin’ity lalana ity dia hanombana ny chat raha vonona ho an’ny rindrambaiko mpampiasa (ATS) ny CV-nao. Ny tanjona dia mihoatra ny 80. Tombana izany, tsy naoty ofisialy.",
@@ -461,9 +481,14 @@ export const strings = {
     loginFirst:
       "Raha milaza ny chat fa hiditra, midira aloha, dia hiverena eto. Ny fidirana dia mety hamafa izay voadika. Adikao indray eto raha foana ny fametahana.",
     copyWizard: "Adikao ny torolalana",
-    copied: "Voadika. Sokafy ny chat, apetaho, alefaso.",
-    copyFail: "Tsy voadika. Fidio ny lahatsoratra eto ambany dia adikao ianao.",
-    recopyHint: "Mijanona ao amin’ny boaty ny torolalana. Adikao indray raha foana ny fametahana.",
+    copyTitle: "Adikao ny torolalana",
+    tipsTitle: "Vakio aloha ity",
+    copiedGoNext: "Voadika — manaraka",
+    showWizard: "Aseho ny lahatsoratra torolalana",
+    progressAria: "Fandrosoana",
+    copied: "Voadika. Tsindrio Manaraka, dia sokafy ny chat ary apetaho.",
+    copyFail: "Tsy voadika. Sokafy ny Aseho ny lahatsoratra torolalana dia adikao.",
+    recopyHint: "Raha foana ny fametahana, adikao indray eto. Tsy mila vakina ny lahatsoratra lava.",
     openFirst: "Avy eo sokafy ity chat ity dia apetaho",
     ifBusy: "Raha be olona io chat io na lany ny hafatra maimaimpoana",
     deepSeekOnly: "DeepSeek — raha efa niditra ihany",
@@ -498,7 +523,7 @@ export const strings = {
     pdfFail: "Tsy vita ny PDF. Andramo ny Word, na havaozy ny pejy.",
     pasteProgressLabel:
       "Apetaho ny boaty fandrosoana (hatramin’ny === PROGRESS START === ka hatramin’ny === PROGRESS END ===)",
-    builtLocal: "Amin’ity findrinao ity no amboarina ny rakitra. Tsy hitanay izany.",
+    builtLocal: "Amin’ity findrinao na solosainao ity no amboarina ny rakitra. Tsy hitanay izany.",
     wizardV: "Torolalana CV v1.1 — Septambra 2026",
     agentGemini: "Gemini",
     agentClaude: "Claude",
@@ -508,7 +533,7 @@ export const strings = {
     langAria: "Fitenin’ny tranonkala",
     saveProgressTitle: "Tahirizo ny fandrosoanao",
     saveProgressHelp:
-      "Apetaho ny boaty avy amin’ny chat (hatramin’ny === PROGRESS START === ka hatramin’ny === PROGRESS END ===). Alaina amin’ity findrinao ity. Any aoriana fidio ny Hanohy ny famoronana dia apetaho io rakitra io ao amin’ny chat.",
+      "Apetaho ny boaty avy amin’ny chat (hatramin’ny === PROGRESS START === ka hatramin’ny === PROGRESS END ===). Alaina amin’ity findrinao na solosainao ity. Any aoriana fidio ny Hanohy ny famoronana dia apetaho io rakitra io ao amin’ny chat.",
     downloadProgress: "Alaina ny rakitra fandrosoana",
     progressError:
       "Apetaho ny boaty fandrosoana. Ilaina ny andalana === PROGRESS START === sy === PROGRESS END ===.",

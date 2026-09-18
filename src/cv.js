@@ -10,6 +10,7 @@ const AGENTS = {
 };
 
 const STORE = "cla-cv-flow";
+const ALL_SCREENS = ["path", "ats", "finish", "tips", "copy", "open"];
 
 function agentLink(id, primary) {
   const agent = AGENTS[id];
@@ -23,8 +24,9 @@ function agentLink(id, primary) {
 }
 
 function screensFor(path) {
-  if (path === "improve" || path === "tailor") return ["path", "ats", "finish", "ready"];
-  return ["path", "finish", "ready"];
+  const tail = ["tips", "copy", "open"];
+  if (path === "improve" || path === "tailor") return ["path", "ats", "finish", ...tail];
+  return ["path", "finish", ...tail];
 }
 
 function loadFlow() {
@@ -60,6 +62,7 @@ function boot() {
     }
     path = paramPath;
   }
+  if (screen === "ready") screen = "tips";
   let learnOpen = false;
 
   const persist = () => saveFlow({ path, finish, screen });
@@ -72,23 +75,24 @@ function boot() {
     });
   };
 
-  const renderReady = () => {
-    const titleKeys = {
-      create: "readyCreateTitle",
-      improve: "readyImproveTitle",
-      tailor: "readyTailorTitle",
-      continue: "readyContinueTitle",
-    };
-    document.getElementById("ready-title").textContent = t(titleKeys[path] || "readyCreateTitle");
+  const renderLaunch = () => {
     document.getElementById("continue-help").classList.toggle("hidden", path !== "continue");
-    document.getElementById("return-create").classList.toggle("hidden", path !== "create" && path !== "continue");
-    document.getElementById("return-suggest").classList.toggle("hidden", path !== "improve" && path !== "tailor");
+    document.getElementById("return-create").classList.toggle(
+      "hidden",
+      path !== "create" && path !== "continue",
+    );
+    document.getElementById("return-suggest").classList.toggle(
+      "hidden",
+      path !== "improve" && path !== "tailor",
+    );
     document.getElementById("save-help").classList.toggle("hidden", path !== "create" && path !== "continue");
     document.getElementById("create-after").classList.toggle("hidden", path !== "create" && path !== "continue");
-    document.getElementById("second-opinion").classList.toggle("hidden", path !== "improve" && path !== "tailor");
+    document.getElementById("second-opinion").classList.toggle(
+      "hidden",
+      path !== "improve" && path !== "tailor",
+    );
 
-    const wizard = document.getElementById("wizard-text");
-    wizard.value = promptFor(path).trim();
+    document.getElementById("wizard-text").value = promptFor(path).trim();
 
     if (!finish) finish = "yes";
     const { first, backup } = pickAgents(path, finish);
@@ -105,16 +109,23 @@ function boot() {
     const steps = screensFor(path);
     if (!steps.includes(screen)) screen = "path";
     const current = Math.max(1, steps.indexOf(screen) + 1);
-    const total = path ? steps.length : 1;
-    document.getElementById("step-label").textContent = path
-      ? tFormat("stepOf", { current: String(current), total: String(total) })
-      : "";
+    const total = path ? steps.length : steps.length;
+    document.getElementById("step-label").textContent = tFormat("stepOf", {
+      current: String(current),
+      total: String(total),
+    });
 
-    ["path", "ats", "finish", "ready"].forEach((name) => {
+    const pct = Math.round((current / total) * 100);
+    document.getElementById("progress-fill").style.width = `${pct}%`;
+    const track = document.getElementById("progress-track");
+    track.setAttribute("aria-valuenow", String(pct));
+    track.setAttribute("aria-label", t("progressAria"));
+
+    ALL_SCREENS.forEach((name) => {
       document.getElementById(`screen-${name}`).classList.toggle("hidden", screen !== name);
     });
     paintChoices();
-    if (screen === "ready") renderReady();
+    if (["tips", "copy", "open"].includes(screen)) renderLaunch();
     persist();
   };
 

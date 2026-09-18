@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
+    <div
+      class="progress-track"
+      role="progressbar"
+      id="progress-track"
+      data-i18n-aria="progressAria"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="0"
+    >
+      <div id="progress-fill" class="progress-fill"></div>
+    </div>
     <div class="wrap">
       <header class="top">
         <div class="brand" data-i18n="brand">Career Launch Africa</div>
@@ -25,6 +36,10 @@
             <strong data-i18n="pathCreate"></strong>
             <span data-i18n="pathCreateHint"></span>
           </button>
+          <button type="button" class="choice choice-block" data-group="path" data-value="continue">
+            <strong data-i18n="pathContinue"></strong>
+            <span data-i18n="pathContinueHint"></span>
+          </button>
           <button type="button" class="choice choice-block" data-group="path" data-value="improve">
             <strong data-i18n="pathImprove"></strong>
             <span data-i18n="pathImproveHint"></span>
@@ -33,10 +48,9 @@
             <strong data-i18n="pathTailor"></strong>
             <span data-i18n="pathTailorHint"></span>
           </button>
-          <button type="button" class="choice choice-block" data-group="path" data-value="continue">
-            <strong data-i18n="pathContinue"></strong>
-            <span data-i18n="pathContinueHint"></span>
-          </button>
+        </div>
+        <div class="actions">
+          <a class="btn btn-secondary" href="../" data-i18n="backStep"></a>
         </div>
       </section>
 
@@ -68,8 +82,8 @@
         </div>
       </section>
 
-      <section id="screen-ready" class="screen hidden">
-        <h2 id="ready-title"></h2>
+      <section id="screen-tips" class="screen hidden">
+        <h2 data-i18n="tipsTitle"></h2>
         <p class="note" data-i18n="keepTab"></p>
         <p class="privacy" data-i18n="loginFirst"></p>
         <p class="privacy" data-i18n="pasteOnly"></p>
@@ -77,23 +91,36 @@
         <p id="return-create" class="hidden" data-i18n="readyReturnCreate"></p>
         <p id="return-suggest" class="hidden" data-i18n="readyReturnSuggest"></p>
         <p id="save-help" class="hidden" data-i18n="readySaveHelp"></p>
+        <div class="actions">
+          <button type="button" class="btn btn-secondary" data-nav="back" data-i18n="backStep"></button>
+          <button type="button" class="btn btn-primary" data-nav="next" data-i18n="next"></button>
+        </div>
+      </section>
 
-        <section class="card">
-          <button type="button" class="btn btn-primary" id="copy-wizard" data-i18n="copyWizard"></button>
-          <p id="copy-status"></p>
-          <p class="hint" data-i18n="recopyHint"></p>
-          <textarea id="wizard-text" readonly rows="8"></textarea>
-        </section>
+      <section id="screen-copy" class="screen hidden">
+        <h2 data-i18n="copyTitle"></h2>
+        <p class="hint" data-i18n="recopyHint"></p>
+        <button type="button" class="btn btn-primary" id="copy-wizard" data-i18n="copyWizard"></button>
+        <p id="copy-status"></p>
+        <details class="wizard-details">
+          <summary data-i18n="showWizard"></summary>
+          <textarea id="wizard-text" readonly rows="6"></textarea>
+        </details>
+        <div class="actions">
+          <button type="button" class="btn btn-secondary" data-nav="back" data-i18n="backStep"></button>
+          <button type="button" class="btn btn-primary" data-nav="next" data-i18n="copiedGoNext"></button>
+        </div>
+      </section>
 
-        <section class="card">
-          <h2 data-i18n="openFirst"></h2>
-          <div id="first-link" class="actions"></div>
-          <h2 data-i18n="ifBusy"></h2>
-          <div id="backup-link" class="actions"></div>
-          <p id="claude-wait" class="note hidden" data-i18n="claudeWait"></p>
-          <p class="hint" data-i18n="deepSeekOnly"></p>
-          <div id="deepseek-link" class="actions"></div>
-        </section>
+      <section id="screen-open" class="screen hidden">
+        <h2 data-i18n="openFirst"></h2>
+        <p class="note" data-i18n="keepTab"></p>
+        <div id="first-link" class="actions"></div>
+        <h2 data-i18n="ifBusy"></h2>
+        <div id="backup-link" class="actions"></div>
+        <p id="claude-wait" class="note hidden" data-i18n="claudeWait"></p>
+        <p class="hint" data-i18n="deepSeekOnly"></p>
+        <div id="deepseek-link" class="actions"></div>
 
         <div id="create-after" class="actions hidden">
           <a class="btn btn-secondary" href="./make-word.html" data-i18n="makeWordLater"></a>
