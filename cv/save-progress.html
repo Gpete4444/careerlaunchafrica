@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title data-i18n="makeWordTitle">Make a Word or PDF file</title>
+    <title data-i18n="saveProgressTitle">Save your progress</title>
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
@@ -14,15 +14,15 @@
       </header>
 
       <a class="back" href="./" data-i18n="backCv">Back to CV Launch</a>
-      <h1 data-i18n="makeWordTitle">Make a Word or PDF file</h1>
+      <h1 data-i18n="saveProgressTitle">Save your progress</h1>
       <p class="privacy" data-i18n="privacyPhone"></p>
+      <p data-i18n="saveProgressHelp"></p>
       <p class="note" data-i18n="keepTab"></p>
-      <p data-i18n="builtLocal"></p>
 
-      <label for="cv-paste" data-i18n="pasteLabel"></label>
+      <label for="progress-paste" data-i18n="pasteProgressLabel"></label>
       <textarea
-        id="cv-paste"
-        data-i18n-placeholder="pastePlaceholder"
+        id="progress-paste"
+        data-i18n-placeholder="progressPlaceholder"
         autocomplete="off"
         autocorrect="off"
         spellcheck="false"
@@ -30,11 +30,11 @@
       <p id="parse-error" class="error" hidden></p>
 
       <div class="actions">
-        <button type="button" class="btn btn-primary" id="download-word" data-i18n="downloadWord"></button>
-        <button type="button" class="btn btn-secondary" id="download-pdf" data-i18n="downloadPdf"></button>
+        <button type="button" class="btn btn-primary" id="download-progress" data-i18n="downloadProgress"></button>
+        <a class="btn btn-secondary" href="./?path=continue" data-i18n="pathContinue"></a>
       </div>
       <p class="version" data-i18n="wizardV"></p>
     </div>
-    <script type="module" src="/src/makeWord.js"></script>
+    <script type="module" src="/src/saveProgress.js"></script>
   </body>
 </html>

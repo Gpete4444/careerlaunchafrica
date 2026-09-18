@@ -14,3 +14,8 @@ export function cvFileBase(cv) {
   const job = slugPart(cv.TARGET_JOB, "General");
   return `${name}_${job}_CV`;
 }
+
+export function progressFileBase(progress) {
+  const name = slugPart(progress?.FULL_NAME, "CV");
+  return `${name}_CV_Launch_progress`;
+}

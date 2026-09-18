@@ -146,6 +146,40 @@ p { margin: 0 0 12px; color: var(--muted); }
   color: #fff;
 }
 
+.choice-block {
+  display: grid;
+  gap: 6px;
+}
+
+.choice-block span {
+  display: block;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.choice.is-on span {
+  color: #e7f3ef;
+}
+
+.step-label {
+  font-weight: 700;
+  color: var(--teal-ink);
+  margin: 0 0 12px;
+}
+
+.hint {
+  font-size: 0.9rem;
+}
+
+#wizard-text {
+  min-height: 140px;
+  margin-top: 10px;
+  font-size: 0.85rem;
+}
+
+.screen { margin-top: 8px; }
+
 .hidden { display: none !important; }
 
 textarea {

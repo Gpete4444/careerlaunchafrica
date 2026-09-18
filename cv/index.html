@@ -15,48 +15,101 @@
 
       <a class="back" href="../" data-i18n="backHub">Back to Career Launch Africa</a>
       <h1 data-i18n="tileCv">CV Launch</h1>
-      <p class="privacy" data-i18n="privacyChat"></p>
-      <p class="note" data-i18n="pasteOnly"></p>
+      <p id="step-label" class="step-label"></p>
 
-      <section class="card">
+      <section id="screen-path" class="screen">
+        <p class="privacy" data-i18n="privacyChat"></p>
         <h2 data-i18n="pathQ"></h2>
         <div class="choices">
-          <button type="button" class="choice" data-group="path" data-value="create" data-i18n="pathCreate"></button>
-          <button type="button" class="choice" data-group="path" data-value="improve" data-i18n="pathImprove"></button>
-          <button type="button" class="choice" data-group="path" data-value="tailor" data-i18n="pathTailor"></button>
+          <button type="button" class="choice choice-block" data-group="path" data-value="create">
+            <strong data-i18n="pathCreate"></strong>
+            <span data-i18n="pathCreateHint"></span>
+          </button>
+          <button type="button" class="choice choice-block" data-group="path" data-value="improve">
+            <strong data-i18n="pathImprove"></strong>
+            <span data-i18n="pathImproveHint"></span>
+          </button>
+          <button type="button" class="choice choice-block" data-group="path" data-value="tailor">
+            <strong data-i18n="pathTailor"></strong>
+            <span data-i18n="pathTailorHint"></span>
+          </button>
+          <button type="button" class="choice choice-block" data-group="path" data-value="continue">
+            <strong data-i18n="pathContinue"></strong>
+            <span data-i18n="pathContinueHint"></span>
+          </button>
         </div>
       </section>
 
-      <section class="card">
+      <section id="screen-ats" class="screen hidden">
+        <h2 data-i18n="atsTitle"></h2>
+        <p data-i18n="atsBlurb"></p>
+        <button type="button" class="btn btn-secondary" id="learn-why" data-i18n="learnWhy"></button>
+        <p id="ats-learn" class="note hidden" data-i18n="atsLearnBody"></p>
+        <div class="actions">
+          <button type="button" class="btn btn-secondary" data-nav="back" data-i18n="backStep"></button>
+          <button type="button" class="btn btn-primary" data-nav="next" data-i18n="next"></button>
+        </div>
+      </section>
+
+      <section id="screen-finish" class="screen hidden">
         <h2 data-i18n="finishQ"></h2>
         <div class="choices">
-          <button type="button" class="choice" data-group="finish" data-value="yes" data-i18n="finishYes"></button>
-          <button type="button" class="choice" data-group="finish" data-value="no" data-i18n="finishNo"></button>
+          <button type="button" class="choice choice-block" data-group="finish" data-value="yes">
+            <strong data-i18n="finishYes"></strong>
+            <span data-i18n="finishYesHint"></span>
+          </button>
+          <button type="button" class="choice choice-block" data-group="finish" data-value="no">
+            <strong data-i18n="finishNo"></strong>
+            <span data-i18n="finishNoHint"></span>
+          </button>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn btn-secondary" data-nav="back" data-i18n="backStep"></button>
         </div>
       </section>
 
-      <p id="choose-both" data-i18n="chooseBoth"></p>
+      <section id="screen-ready" class="screen hidden">
+        <h2 id="ready-title"></h2>
+        <p class="note" data-i18n="keepTab"></p>
+        <p class="privacy" data-i18n="loginFirst"></p>
+        <p class="privacy" data-i18n="pasteOnly"></p>
+        <p id="continue-help" class="hidden" data-i18n="readyContinueHelp"></p>
+        <p id="return-create" class="hidden" data-i18n="readyReturnCreate"></p>
+        <p id="return-suggest" class="hidden" data-i18n="readyReturnSuggest"></p>
+        <p id="save-help" class="hidden" data-i18n="readySaveHelp"></p>
 
-      <section id="recommend" class="card hidden">
-        <h2 data-i18n="openFirst"></h2>
-        <div id="first-link" class="actions"></div>
-        <h2 data-i18n="ifBusy"></h2>
-        <div id="backup-link" class="actions"></div>
-        <p id="claude-wait" class="note hidden" data-i18n="claudeWait"></p>
-      </section>
+        <section class="card">
+          <button type="button" class="btn btn-primary" id="copy-wizard" data-i18n="copyWizard"></button>
+          <p id="copy-status"></p>
+          <p class="hint" data-i18n="recopyHint"></p>
+          <textarea id="wizard-text" readonly rows="8"></textarea>
+        </section>
 
-      <section class="card">
-        <button type="button" class="btn btn-primary" id="copy-wizard" data-i18n="copyWizard"></button>
-        <p id="copy-status"></p>
-        <h2 data-i18n="stepsTitle"></h2>
-        <ol class="steps">
-          <li data-i18n="step1"></li>
-          <li data-i18n="step2"></li>
-          <li data-i18n="step3"></li>
-          <li data-i18n="step4"></li>
-          <li data-i18n="step5"></li>
-        </ol>
-        <a class="btn btn-secondary" href="./make-word.html" data-i18n="makeWord"></a>
+        <section class="card">
+          <h2 data-i18n="openFirst"></h2>
+          <div id="first-link" class="actions"></div>
+          <h2 data-i18n="ifBusy"></h2>
+          <div id="backup-link" class="actions"></div>
+          <p id="claude-wait" class="note hidden" data-i18n="claudeWait"></p>
+          <p class="hint" data-i18n="deepSeekOnly"></p>
+          <div id="deepseek-link" class="actions"></div>
+        </section>
+
+        <div id="create-after" class="actions hidden">
+          <a class="btn btn-secondary" href="./make-word.html" data-i18n="makeWordLater"></a>
+          <a class="btn btn-secondary" href="./save-progress.html" data-i18n="saveProgressLink"></a>
+        </div>
+
+        <section id="second-opinion" class="card hidden">
+          <h2 data-i18n="secondOpinionTitle"></h2>
+          <p data-i18n="secondOpinionHelp"></p>
+          <button type="button" class="btn btn-secondary" id="copy-second" data-i18n="copySecondOpinion"></button>
+          <p id="second-status"></p>
+        </section>
+
+        <div class="actions">
+          <button type="button" class="btn btn-secondary" data-nav="back" data-i18n="backStep"></button>
+        </div>
       </section>
 
       <p class="version" data-i18n="wizardV"></p>

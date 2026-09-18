@@ -1,13 +1,15 @@
 import { applyI18n, renderLangSwitch } from "./applyI18n.js";
 import { t, tFormat } from "./i18n.js";
 import { pickAgents } from "./pickAgents.js";
-import { WIZARD_PROMPT } from "./wizardPrompt.js";
+import { ATS_SECOND_PROMPT, promptFor } from "./wizardPrompt.js";
 
 const AGENTS = {
   gemini: { href: "https://gemini.google.com", labelKey: "agentGemini" },
   claude: { href: "https://claude.ai", labelKey: "agentClaude" },
   deepseek: { href: "https://chat.deepseek.com", labelKey: "agentDeepSeek" },
 };
+
+const STORE = "cla-cv-flow";
 
 function agentLink(id, primary) {
   const agent = AGENTS[id];
@@ -20,66 +22,177 @@ function agentLink(id, primary) {
   return a;
 }
 
+function screensFor(path) {
+  if (path === "improve" || path === "tailor") return ["path", "ats", "finish", "ready"];
+  return ["path", "finish", "ready"];
+}
+
+function loadFlow() {
+  try {
+    return JSON.parse(sessionStorage.getItem(STORE) || "{}");
+  } catch {
+    return {};
+  }
+}
+
+function saveFlow(flow) {
+  try {
+    sessionStorage.setItem(STORE, JSON.stringify(flow));
+  } catch {
+    /* ignore */
+  }
+}
+
 function boot() {
   applyI18n();
   renderLangSwitch(document.getElementById("lang-switch"));
 
-  let path = "";
-  let finish = "";
+  const saved = loadFlow();
+  const params = new URLSearchParams(location.search);
+  const paramPath = params.get("path");
+  let path = saved.path || "";
+  let finish = saved.finish || "";
+  let screen = saved.screen || "path";
+  if (["create", "improve", "tailor", "continue"].includes(paramPath)) {
+    if (path !== paramPath) {
+      finish = "";
+      screen = screensFor(paramPath)[1] || "finish";
+    }
+    path = paramPath;
+  }
+  let learnOpen = false;
 
-  const recommend = document.getElementById("recommend");
-  const hint = document.getElementById("choose-both");
+  const persist = () => saveFlow({ path, finish, screen });
 
-  const paintChoices = (name, value) => {
-    document.querySelectorAll(`[data-group="${name}"]`).forEach((btn) => {
+  const paintChoices = () => {
+    document.querySelectorAll("[data-group]").forEach((btn) => {
+      const group = btn.getAttribute("data-group");
+      const value = group === "path" ? path : finish;
       btn.classList.toggle("is-on", btn.getAttribute("data-value") === value);
     });
   };
 
-  const renderRecommend = () => {
-    applyI18n();
-    if (!path || !finish) {
-      recommend.classList.add("hidden");
-      hint.classList.remove("hidden");
-      return;
-    }
-    hint.classList.add("hidden");
-    recommend.classList.remove("hidden");
+  const renderReady = () => {
+    const titleKeys = {
+      create: "readyCreateTitle",
+      improve: "readyImproveTitle",
+      tailor: "readyTailorTitle",
+      continue: "readyContinueTitle",
+    };
+    document.getElementById("ready-title").textContent = t(titleKeys[path] || "readyCreateTitle");
+    document.getElementById("continue-help").classList.toggle("hidden", path !== "continue");
+    document.getElementById("return-create").classList.toggle("hidden", path !== "create" && path !== "continue");
+    document.getElementById("return-suggest").classList.toggle("hidden", path !== "improve" && path !== "tailor");
+    document.getElementById("save-help").classList.toggle("hidden", path !== "create" && path !== "continue");
+    document.getElementById("create-after").classList.toggle("hidden", path !== "create" && path !== "continue");
+    document.getElementById("second-opinion").classList.toggle("hidden", path !== "improve" && path !== "tailor");
+
+    const wizard = document.getElementById("wizard-text");
+    wizard.value = promptFor(path).trim();
+
+    if (!finish) finish = "yes";
     const { first, backup } = pickAgents(path, finish);
     document.getElementById("first-link").replaceChildren(agentLink(first, true));
     document.getElementById("backup-link").replaceChildren(agentLink(backup, false));
+    document.getElementById("deepseek-link").replaceChildren(agentLink("deepseek", false));
     document.getElementById("claude-wait").classList.toggle(
       "hidden",
       first !== "claude" && backup !== "claude",
     );
   };
 
+  const showScreen = () => {
+    const steps = screensFor(path);
+    if (!steps.includes(screen)) screen = "path";
+    const current = Math.max(1, steps.indexOf(screen) + 1);
+    const total = path ? steps.length : 1;
+    document.getElementById("step-label").textContent = path
+      ? tFormat("stepOf", { current: String(current), total: String(total) })
+      : "";
+
+    ["path", "ats", "finish", "ready"].forEach((name) => {
+      document.getElementById(`screen-${name}`).classList.toggle("hidden", screen !== name);
+    });
+    paintChoices();
+    if (screen === "ready") renderReady();
+    persist();
+  };
+
+  const goNext = () => {
+    const steps = screensFor(path);
+    const i = steps.indexOf(screen);
+    if (i >= 0 && i < steps.length - 1) screen = steps[i + 1];
+    showScreen();
+  };
+
+  const goBack = () => {
+    const steps = screensFor(path);
+    const i = steps.indexOf(screen);
+    if (i > 0) screen = steps[i - 1];
+    else screen = "path";
+    showScreen();
+  };
+
   document.querySelectorAll("[data-group]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const group = btn.getAttribute("data-group");
       const value = btn.getAttribute("data-value");
-      if (group === "path") path = value;
-      if (group === "finish") finish = value;
-      paintChoices(group, value);
-      renderRecommend();
+      if (group === "path") {
+        path = value;
+        finish = "";
+        goNext();
+        return;
+      }
+      if (group === "finish") {
+        finish = value;
+        goNext();
+      }
     });
   });
 
-  const copyBtn = document.getElementById("copy-wizard");
+  document.querySelectorAll("[data-nav]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (btn.getAttribute("data-nav") === "back") goBack();
+      else goNext();
+    });
+  });
+
+  const learnBtn = document.getElementById("learn-why");
+  const learnBody = document.getElementById("ats-learn");
+  learnBtn.addEventListener("click", () => {
+    learnOpen = !learnOpen;
+    learnBody.classList.toggle("hidden", !learnOpen);
+    learnBtn.textContent = t(learnOpen ? "hideLearn" : "learnWhy");
+  });
+
   const copyStatus = document.getElementById("copy-status");
-  copyBtn.addEventListener("click", async () => {
+  document.getElementById("copy-wizard").addEventListener("click", async () => {
     try {
-      await navigator.clipboard.writeText(WIZARD_PROMPT.trim());
+      await navigator.clipboard.writeText(document.getElementById("wizard-text").value);
       copyStatus.textContent = t("copied");
     } catch {
       copyStatus.textContent = t("copyFail");
     }
   });
 
-  document.getElementById("lang-switch").addEventListener("click", () => {
-    renderRecommend();
-    if (copyStatus.textContent) copyStatus.textContent = "";
+  const secondStatus = document.getElementById("second-status");
+  document.getElementById("copy-second").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(ATS_SECOND_PROMPT.trim());
+      secondStatus.textContent = t("copiedSecond");
+    } catch {
+      secondStatus.textContent = t("copyFail");
+    }
   });
+
+  document.getElementById("lang-switch").addEventListener("click", () => {
+    showScreen();
+    learnBtn.textContent = t(learnOpen ? "hideLearn" : "learnWhy");
+    if (copyStatus.textContent) copyStatus.textContent = "";
+    if (secondStatus.textContent) secondStatus.textContent = "";
+  });
+
+  showScreen();
 }
 
 boot();

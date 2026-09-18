@@ -1,4 +1,5 @@
 const LABELS = [
+  "CV_LANGUAGE",
   "FULL_NAME",
   "CITY",
   "COUNTRY",

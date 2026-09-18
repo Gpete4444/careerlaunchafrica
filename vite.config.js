@@ -9,6 +9,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         cv: resolve(__dirname, "cv/index.html"),
         makeWord: resolve(__dirname, "cv/make-word.html"),
+        saveProgress: resolve(__dirname, "cv/save-progress.html"),
       },
     },
   },
