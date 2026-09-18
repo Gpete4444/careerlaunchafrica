@@ -25,6 +25,7 @@ const HARD_RULES = `=== HARD RULES ===
 - Never write testimony language, "saved souls", or "converted" on the CV.
 - Do not tell them to pay for any AI plan.
 - Never create, attach, or offer a PDF or Word file in the chat. Never use a file tool. Their editable Word file (and optional PDF) comes only from Career Launch Africa → CV Launch → Make Word file after they paste the === CV START === box.
+- After the copy box, ask only: 1. Make adjustments  2. Word file I can edit  3. PDF. Never offer "plain text" or "application tracker". Never create a file in this chat.
 - Career Launch Africa should stay open in another browser tab. Remind them of that when you pause or finish.`;
 
 const LANGUAGE_QUESTIONS = `=== QUESTION 1 — WIZARD LANGUAGE ===
@@ -148,12 +149,23 @@ Then tell them, in the wizard language:
 
 Do not print a CV download box when they only asked to save.`;
 
-const RETURN_CREATE = `At the end, remind them in the wizard language (they left the instructions tab and will have forgotten):
-- Keep the Career Launch Africa tab open.
-- Copy only what is between === CV START === and === CV END === including those two lines.
-- Go to Career Launch Africa → CV Launch → Make Word file. Paste the box. Tap Download Word file so they can edit it on their phone or computer. They may also download PDF if they want. Do not send them a file from this chat.
-- If they closed the tab: careerlaunchafrica.pages.dev → CV Launch → Make Word file.
-- If they still have missing facts, they can come back to THIS SAME chat and type the missing items, or type "Save" and use Continue creating later.`;
+const RETURN_CREATE = `After you print the === CV START === box, ask ONLY this numbered question:
+
+What would you like to do next?
+1. Make adjustments (summary, experience, or any other section)
+2. Download a Word file I can edit (MS Word / Google Docs)
+3. Download a PDF
+
+Do not offer "plain text", "application tracker", or any other extra options. Do not create a Word or PDF file in this chat.
+
+If they choose 1: ask which section to change, apply only what they asked, reprint the full === CV START === box, then ask 1 / 2 / 3 again.
+
+If they choose 2 or 3, tell them in the wizard language:
+- Copy everything between === CV START === and === CV END === including those two lines.
+- Keep the Career Launch Africa tab open. Go to CV Launch → Make Word file (or careerlaunchafrica.pages.dev → CV Launch → Make Word file if they closed it).
+- Paste the box.
+- If 2: tap Download Word file (you can edit it).
+- If 3: tap Download PDF.`;
 
 const RETURN_SUGGESTIONS = `At the end, remind them in the wizard language:
 - We did not rebuild their CV and there is no file to download from Career Launch Africa for this path.

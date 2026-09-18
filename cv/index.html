@@ -7,17 +7,6 @@
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <div
-      class="progress-track"
-      role="progressbar"
-      id="progress-track"
-      data-i18n-aria="progressAria"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      aria-valuenow="0"
-    >
-      <div id="progress-fill" class="progress-fill"></div>
-    </div>
     <div class="wrap">
       <header class="top">
         <div class="brand" data-i18n="brand">Career Launch Africa</div>
@@ -26,7 +15,23 @@
 
       <a class="back" href="../" data-i18n="backHub">Back to Career Launch Africa</a>
       <h1 data-i18n="tileCv">CV Launch</h1>
-      <p id="step-label" class="step-label"></p>
+      <div class="progress-panel">
+        <div class="progress-meta">
+          <span class="progress-kicker" data-i18n="progressTitle">Progress</span>
+          <p id="step-label" class="step-label"></p>
+        </div>
+        <div
+          class="progress-track"
+          role="progressbar"
+          id="progress-track"
+          data-i18n-aria="progressAria"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="20"
+        >
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
 
       <section id="screen-path" class="screen">
         <p class="privacy" data-i18n="privacyChat"></p>
