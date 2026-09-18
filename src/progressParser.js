@@ -11,6 +11,7 @@ export const PROGRESS_LABELS = [
   "EMAIL",
   "ADDRESS",
   "TARGET_JOB",
+  "JOB_AD",
   "PAID_WORK",
   "INFORMAL_WORK",
   "EDUCATION",

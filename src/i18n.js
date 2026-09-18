@@ -75,12 +75,12 @@ export const strings = {
     readyContinueHelp:
       "In the chat, paste the wizard, then a blank line, then the text from your progress file, then send.",
     readyReturnCreate:
-      "When the chat prints === CV START ===, come back to this tab and open Make Word file.",
+      "When the chat prints === CV START ===, come back to this tab, open Make Word file, paste the box, and download Word so you can edit it. PDF is optional.",
     readyReturnSuggest:
       "When the chat finishes, apply the numbered suggestions in your own CV file. There is no new file to download.",
-    readySaveHelp: "Need to stop? In the chat, type Save. Then come here and open Save progress.",
+    readySaveHelp: "Need to stop? In the chat, type \"Save\". Then come here and open Save progress.",
     makeWord: "Make Word file",
-    makeWordLater: "After the chat: Make Word file",
+    makeWordLater: "After the chat: Make Word file (you can edit it)",
     saveProgressLink: "Save progress",
     secondOpinionTitle: "Want another ATS estimate?",
     secondOpinionHelp:
@@ -90,9 +90,11 @@ export const strings = {
     pasteOnly:
       "Paste only. Do not attach a Word file, PDF, or photo. Uploading often fails on free accounts or asks you to pay.",
     makeWordTitle: "Make a Word or PDF file",
+    makeWordHelp:
+      "Paste the box, then download the Word file so you can edit it. PDF is optional. The chat cannot make a Word file for you.",
     pasteLabel: "Paste the box from the wizard (from === CV START === to === CV END ===)",
     pastePlaceholder: "=== CV START ===\n...\n=== CV END ===",
-    downloadWord: "Download Word file",
+    downloadWord: "Download Word file (you can edit it)",
     downloadPdf: "Download PDF",
     parseError:
       "Paste the box from the wizard. We need the lines === CV START === and === CV END ===.",
@@ -181,12 +183,12 @@ export const strings = {
     readyContinueHelp:
       "Dans le chat, collez l’assistant, une ligne vide, puis le texte de votre fichier de progression, puis envoyez.",
     readyReturnCreate:
-      "Quand le chat affiche === CV START ===, revenez à cet onglet et ouvrez Créer le fichier Word.",
+      "Quand le chat affiche === CV START ===, revenez à cet onglet, ouvrez Créer le fichier Word, collez le bloc, et téléchargez Word pour pouvoir le modifier. Le PDF est facultatif.",
     readyReturnSuggest:
       "Quand le chat a fini, appliquez les suggestions numérotées dans votre propre fichier. Il n’y a pas de nouveau fichier à télécharger.",
-    readySaveHelp: "Besoin de pause ? Dans le chat, tapez Save. Puis revenez ici et ouvrez Enregistrer la progression.",
+    readySaveHelp: "Besoin de pause ? Dans le chat, tapez « Save ». Puis revenez ici et ouvrez Enregistrer la progression.",
     makeWord: "Créer le fichier Word",
-    makeWordLater: "Après le chat : Créer le fichier Word",
+    makeWordLater: "Après le chat : Créer le fichier Word (modifiable)",
     saveProgressLink: "Enregistrer la progression",
     secondOpinionTitle: "Un autre avis ATS ?",
     secondOpinionHelp:
@@ -196,9 +198,11 @@ export const strings = {
     pasteOnly:
       "Collez seulement le texte. N’ajoutez pas de fichier Word, PDF ou photo. L’envoi d’un fichier échoue souvent sur un compte gratuit ou demande un paiement.",
     makeWordTitle: "Créer un fichier Word ou PDF",
+    makeWordHelp:
+      "Collez le bloc, puis téléchargez le fichier Word pour le modifier. Le PDF est facultatif. Le chat ne peut pas créer un fichier Word.",
     pasteLabel: "Collez le bloc de l’assistant (de === CV START === à === CV END ===)",
     pastePlaceholder: "=== CV START ===\n...\n=== CV END ===",
-    downloadWord: "Télécharger le fichier Word",
+    downloadWord: "Télécharger le fichier Word (modifiable)",
     downloadPdf: "Télécharger le PDF",
     parseError:
       "Collez le bloc de l’assistant. Il faut les lignes === CV START === et === CV END ===.",
@@ -287,12 +291,12 @@ export const strings = {
     readyContinueHelp:
       "No chat, cole o assistente, uma linha vazia, depois o texto do ficheiro de progresso, e envie.",
     readyReturnCreate:
-      "Quando o chat mostrar === CV START ===, volte a este separador e abra Criar ficheiro Word.",
+      "Quando o chat mostrar === CV START ===, volte a este separador, abra Criar ficheiro Word, cole a caixa e descarregue Word para poder editá-lo. O PDF é opcional.",
     readyReturnSuggest:
       "Quando o chat terminar, aplique as sugestões numeradas no seu próprio ficheiro. Não há ficheiro novo para descarregar.",
-    readySaveHelp: "Precisa parar? No chat, escreva Save. Depois volte aqui e abra Guardar progresso.",
+    readySaveHelp: "Precisa parar? No chat, escreva \"Save\". Depois volte aqui e abra Guardar progresso.",
     makeWord: "Criar ficheiro Word",
-    makeWordLater: "Depois do chat: Criar ficheiro Word",
+    makeWordLater: "Depois do chat: Criar ficheiro Word (pode editá-lo)",
     saveProgressLink: "Guardar progresso",
     secondOpinionTitle: "Outra estimativa ATS?",
     secondOpinionHelp:
@@ -302,9 +306,11 @@ export const strings = {
     pasteOnly:
       "Cole só o texto. Não anexe Word, PDF ou foto. Enviar um ficheiro muitas vezes falha na conta grátis ou pede pagamento.",
     makeWordTitle: "Criar um ficheiro Word ou PDF",
+    makeWordHelp:
+      "Cole a caixa, depois descarregue o ficheiro Word para o editar. O PDF é opcional. O chat não pode criar um ficheiro Word.",
     pasteLabel: "Cole a caixa do assistente (de === CV START === até === CV END ===)",
     pastePlaceholder: "=== CV START ===\n...\n=== CV END ===",
-    downloadWord: "Descarregar o ficheiro Word",
+    downloadWord: "Descarregar o ficheiro Word (pode editá-lo)",
     downloadPdf: "Descarregar o PDF",
     parseError:
       "Cole a caixa do assistente. Precisamos das linhas === CV START === e === CV END ===.",
@@ -393,12 +399,12 @@ export const strings = {
     readyContinueHelp:
       "Kwenye gumzo, bandika mwongozo, mstari tupu, kisha maandishi ya faili lako la maendeleo, kisha tuma.",
     readyReturnCreate:
-      "Gumzo linapoonyesha === CV START ===, rudi kwenye kichupo hiki ufungue Tengeneza faili la Word.",
+      "Gumzo linapoonyesha === CV START ===, rudi kwenye kichupo hiki, fungua Tengeneza faili la Word, bandika kisanduku, kisha pakua Word ili uweze kulihariri. PDF ni hiari.",
     readyReturnSuggest:
       "Gumzo likimaliza, tumia mapendekezo yenye namba kwenye faili lako la CV. Hakuna faili jipya la kupakua.",
-    readySaveHelp: "Unahitaji kusimama? Kwenye gumzo, andika Save. Kisha rudi hapa ufungue Hifadhi maendeleo.",
+    readySaveHelp: "Unahitaji kusimama? Kwenye gumzo, andika \"Save\". Kisha rudi hapa ufungue Hifadhi maendeleo.",
     makeWord: "Tengeneza faili la Word",
-    makeWordLater: "Baada ya gumzo: Tengeneza faili la Word",
+    makeWordLater: "Baada ya gumzo: Tengeneza faili la Word (unaweza kulihariri)",
     saveProgressLink: "Hifadhi maendeleo",
     secondOpinionTitle: "Unataka makadirio mengine ya ATS?",
     secondOpinionHelp:
@@ -408,9 +414,11 @@ export const strings = {
     pasteOnly:
       "Bandika maandishi tu. Usipakie faili la Word, PDF, wala picha. Kupakia mara nyingi kunashindwa kwenye akaunti ya bure au kunaomba malipo.",
     makeWordTitle: "Tengeneza faili la Word au PDF",
+    makeWordHelp:
+      "Bandika kisanduku, kisha pakua faili la Word ili uweze kulihariri. PDF ni hiari. Gumzo haliwezi kutengeneza faili la Word.",
     pasteLabel: "Bandika kisanduku kutoka mwongozo (kutoka === CV START === hadi === CV END ===)",
     pastePlaceholder: "=== CV START ===\n...\n=== CV END ===",
-    downloadWord: "Pakua faili la Word",
+    downloadWord: "Pakua faili la Word (unaweza kulihariri)",
     downloadPdf: "Pakua PDF",
     parseError:
       "Bandika kisanduku kutoka mwongozo. Tunahitaji mistari === CV START === na === CV END ===.",
@@ -499,12 +507,12 @@ export const strings = {
     readyContinueHelp:
       "Ao amin’ny chat, apetaho ny torolalana, andalana foana, avy eo ny lahatsoratra ao amin’ny rakitra fandrosoana, dia alefaso.",
     readyReturnCreate:
-      "Rehefa miseho === CV START === ny chat, hiverena amin’ity onglet ity dia sokafy ny Amboary rakitra Word.",
+      "Rehefa miseho === CV START === ny chat, hiverena amin’ity onglet ity, sokafy ny Amboary rakitra Word, apetaho ny boaty, dia alaina Word mba ho azonao ovaina. PDF dia tsy voatery.",
     readyReturnSuggest:
       "Rehefa vita ny chat, ampiharo ny soso-kevitra misy laharana ao amin’ny rakitra CV-nao. Tsy misy rakitra vaovao alaina.",
-    readySaveHelp: "Mila mijanona? Ao amin’ny chat, soraty ny Save. Avy eo hiverena eto dia sokafy ny Tahirizo ny fandrosoana.",
+    readySaveHelp: "Mila mijanona? Ao amin’ny chat, soraty ny \"Save\". Avy eo hiverena eto dia sokafy ny Tahirizo ny fandrosoana.",
     makeWord: "Amboary rakitra Word",
-    makeWordLater: "Aorian’ny chat: Amboary rakitra Word",
+    makeWordLater: "Aorian’ny chat: Amboary rakitra Word (azonao ovaina)",
     saveProgressLink: "Tahirizo ny fandrosoana",
     secondOpinionTitle: "Tia tombana ATS hafa ve ianao?",
     secondOpinionHelp:
@@ -514,9 +522,11 @@ export const strings = {
     pasteOnly:
       "Apetaho fotsiny ny lahatsoratra. Aza ampidirina rakitra Word, PDF, na sary. Matetika tsy mandeha izany amin’ny kaonty maimaimpoana, na angatahina handoa.",
     makeWordTitle: "Amboary rakitra Word na PDF",
+    makeWordHelp:
+      "Apetaho ny boaty, dia alaina ny rakitra Word mba ho azonao ovaina. PDF dia tsy voatery. Tsy afaka mamorona rakitra Word ny chat.",
     pasteLabel: "Apetaho ny boaty avy amin’ny torolalana (hatramin’ny === CV START === ka hatramin’ny === CV END ===)",
     pastePlaceholder: "=== CV START ===\n...\n=== CV END ===",
-    downloadWord: "Alaina ny rakitra Word",
+    downloadWord: "Alaina ny rakitra Word (azonao ovaina)",
     downloadPdf: "Alaina ny PDF",
     parseError:
       "Apetaho ny boaty avy amin’ny torolalana. Ilaina ny andalana === CV START === sy === CV END ===.",

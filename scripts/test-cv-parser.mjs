@@ -81,6 +81,17 @@ assert.doesNotMatch(promptFor("improve"), /=== FINAL OUTPUT ===/);
 assert.match(promptFor("tailor"), /TAILOR A CV TO A JOB/);
 assert.match(promptFor("continue"), /CONTINUE CREATING/);
 assert.match(promptFor("create"), /=== PROGRESS START ===/);
+assert.doesNotMatch(promptFor("create"), /United Kingdom/);
+assert.doesNotMatch(promptFor("create"), /United States/);
+assert.match(promptFor("create"), /Enter text/);
+assert.match(promptFor("create"), /Type "Save"/);
+assert.match(promptFor("create"), /Skip this question if you do not have a specific job/);
+assert.match(promptFor("create"), /full job description/);
+assert.match(promptFor("create"), /blank send does not skip/);
+assert.match(promptFor("create"), /Download Word file/);
+assert.match(promptFor("create"), /Never create, attach, or offer a PDF/);
+assert.match(promptFor("tailor"), /full job description/);
+assert.match(promptFor("create"), /JOB_AD:/);
 
 assert.equal(localeKeySetsMatch(), true);
 assert.ok(strings.sw);
