@@ -93,8 +93,8 @@ assert.match(promptFor("create"), /Skip this question if you do not have a speci
 assert.match(promptFor("create"), /full job description/);
 assert.match(promptFor("create"), /blank send does not skip/);
 assert.match(promptFor("create"), /Make adjustments/);
-assert.match(promptFor("create"), /Download a Word file I can edit/);
-assert.match(promptFor("create"), /Download a PDF/);
+assert.match(promptFor("create"), /Create the CV in a Microsoft Word format/);
+assert.match(promptFor("create"), /Create the CV in a PDF format/);
 assert.match(promptFor("create"), /Never create, attach, or offer a PDF/);
 assert.match(promptFor("tailor"), /full job description/);
 assert.match(promptFor("create"), /JOB_AD:/);
@@ -127,6 +127,10 @@ assert.match(xml, /Market stall/);
 unlinkSync(docxPath);
 
 assert.equal(localeKeySetsMatch(), true);
+assert.equal(strings.en.downloadWord, "Create the CV in a Microsoft Word format");
+assert.equal(strings.en.downloadPdf, "Create the CV in a PDF format");
+assert.match(strings.en.pathHow, /never done this before/);
+assert.match(strings.en.openHow, /press and hold/);
 assert.ok(strings.sw);
 assert.equal(strings.en.tileCv, "CV Launch");
 assert.equal(strings.fr.tileInterview, "Interview Launch");
